@@ -1,11 +1,10 @@
 #include <stdio.h>
-/*
- *main function of the code 
+/**
+ *main - A program that prints a line using puts function 
+ *return: 0
  */
-int main	(void) 
-/*in this case the put function replaces printf funtion
- * 
- */
-{puts("\"Programming is like building a multilingual puzzle");
-return	(0); 
+int main(void )
+{
+puts("\"Programming is like building a multilingual puzzle");
+return (0); 
 }       
