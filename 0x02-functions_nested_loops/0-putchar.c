@@ -1,10 +1,13 @@
-#include main.h
-#include <_putchar>
-int main(void)
+#include"main.h"
+#include <unistd.h>
 /**
- * main - a program that prints _putchar
- * return:0 - (successful)
+ * _putchar - writes the character c in stduot
+ * @:The character to print
+ *
+ * return: On succcess 1.
+ * On error -1 is returned and error number is set appropriately
  */
+int _putchar(char c)
 {
-	_putchar("_putchar /n");
-	return(0);	}
+	return (write(1, &c, 1));
+}
