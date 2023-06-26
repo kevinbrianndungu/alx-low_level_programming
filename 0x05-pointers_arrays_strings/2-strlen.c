@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
- *  _strlen - Returns the length of a string.
+ * _strlen - Returns the length of a string
  * @str: The string of the length of 
- * return: The length of @str.
+ * return: The length of @str
  */
 
 {
