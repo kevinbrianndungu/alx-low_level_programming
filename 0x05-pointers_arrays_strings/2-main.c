@@ -16,4 +16,3 @@ int main(void)
     printf("%d\n", len);
     return (0);
 }
-
