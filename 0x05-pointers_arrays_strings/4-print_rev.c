@@ -20,4 +20,6 @@ void print_rev(char *s)
 	putchar(S[c]);
 	}
 	putchar('\n');
+
+	return;
 }
