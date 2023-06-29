@@ -7,14 +7,11 @@
  */
 int main(void)
 {
-	ssize_t len, written;
+	ssize_t len;
 	char *str = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
-	len = sizeof(str) - 1;
-	written = write(2, str, len);
+	len = 59;
+	write(2, str, len);
 
-	if (written == len)
-		return (1);
-	else
-		return (-1);
+	return (1);
 }
