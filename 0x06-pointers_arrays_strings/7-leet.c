@@ -12,7 +12,7 @@ char *leet(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; letters[j] != '\0'; j++)
+		for (j = 0; letters[j + 1] != '\0'; j++)
 		{
 			if (str[i] == letters[j])
 			{
@@ -22,5 +22,5 @@ char *leet(char *str)
 		}
 	}
 
-	return str;
+	return (str);
 }
