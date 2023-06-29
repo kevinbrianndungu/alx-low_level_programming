@@ -8,9 +8,10 @@
 int main(void)
 {
 	ssize_t len, written;
+	char *str = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
-	len = sizeof("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n") - 1;
-	written = write(2, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n", len);
+	len = sizeof(str) - 1;
+	written = write(2, str, len);
 
 	if (written == len)
 		return (1);
