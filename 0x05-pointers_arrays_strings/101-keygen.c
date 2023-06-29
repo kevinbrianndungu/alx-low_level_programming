@@ -4,7 +4,7 @@
 
 #define PASSWORD_LENGTH 8
 
-char *generate_password()
+char *generate_password(void)
 {
     char *password = malloc((PASSWORD_LENGTH + 1) * sizeof(char));
     if (password == NULL)
@@ -15,9 +15,10 @@ char *generate_password()
 
     srand(time(NULL));
 
-    for (int i = 0; i < PASSWORD_LENGTH; i++)
+    int i;
+    for (i = 0; i < PASSWORD_LENGTH; i++)
     {
-        password[i] = rand() % 94 + 33; // Generate random printable ASCII characters
+        password[i] = rand() % 94 + 33; /* Generate random printable ASCII characters */
     }
     password[PASSWORD_LENGTH] = '\0';
 
