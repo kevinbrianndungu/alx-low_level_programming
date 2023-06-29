@@ -32,5 +32,8 @@ int _atoi(char *s)
 		i++;
 	}
 
+	if (i == 0 || (i == 1 && (s[0] == '-' || s[0] == '+')))
+		return (0);
+
 	return (result * sign);
 }
