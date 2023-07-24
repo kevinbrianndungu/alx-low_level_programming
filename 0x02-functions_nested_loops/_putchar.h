@@ -1,6 +1,12 @@
-#ifndef _PUTCHAR_H
-#define _PUTCHAR_H
+#include "_putchar.h"
 
-int _putchar(char c);
+int main(void)
+{
+    char str[] = "_putchar\n";
+    int i;
 
-#endif /* _PUTCHAR_H */
+    for (i = 0; str[i] != '\0'; i++)
+        _putchar(str[i]);
+
+    return 0;
+}
