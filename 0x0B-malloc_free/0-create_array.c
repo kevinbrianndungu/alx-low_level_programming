@@ -1,4 +1,13 @@
+#include "main.h"
 #include <stdlib.h>
+
+/**
+ *char -create an array of size unsigned 
+ *@size - size of the array
+ *@c - character to be assigned 
+ *
+ *
+ */
 
 char *create_array(unsigned int size, char c)
 {
@@ -16,4 +25,4 @@ char *create_array(unsigned int size, char c)
     }
 
     return (array);
-
+}
