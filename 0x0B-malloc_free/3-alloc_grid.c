@@ -52,8 +52,7 @@ void print_grid(int **grid, int width, int height)
 int main(void)
 {
     int **grid;
-
-    int h; // Declare h here
+    int h; /* Declare h here */
 
     grid = alloc_grid(6, 4);
 
