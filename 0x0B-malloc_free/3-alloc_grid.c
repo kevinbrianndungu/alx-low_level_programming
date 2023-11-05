@@ -53,6 +53,8 @@ int main(void)
 {
     int **grid;
 
+    int h; // Declare h here
+
     grid = alloc_grid(6, 4);
 
     if (grid == NULL) {
@@ -62,11 +64,7 @@ int main(void)
     print_grid(grid, 6, 4);
     printf("\n");
 
-    grid[0][3] = 98;
-    grid[3][4] = 402;
-    print_grid(grid, 6, 4);
-
-    for (int h = 0; h < 4; h++) {
+    for (h = 0; h < 4; h++) {
         free(grid[h]);
     }
 
