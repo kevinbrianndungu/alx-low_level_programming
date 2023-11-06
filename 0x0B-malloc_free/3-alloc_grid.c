@@ -12,7 +12,7 @@ int **alloc_grid(int width, int height) {
     /* Allocate memory for the rows of the 2D array */
     grid = (int **)malloc(sizeof(int *) * height);
     if (grid == NULL) {
-        return NULL;  // Return NULL if malloc fails
+        return NULL;  /* Return NULL if malloc fails */
     }
 
     /* Allocate memory for each row and initialize elements to 0 */
@@ -24,7 +24,7 @@ int **alloc_grid(int width, int height) {
                 free(grid[i]);
             }
             free(grid);
-            return NULL;  // Return NULL if malloc fails for a row
+            return NULL;  /* Return NULL if malloc fails for a row */
         }
 
         for (w = 0; w < width; w++) {
