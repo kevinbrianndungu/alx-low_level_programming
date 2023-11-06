@@ -3,17 +3,19 @@
 #include <stdlib.h>
 
 /**
- * Deallocates the memory used by a 2D grid.
- * @param grid: The grid to be freed.
- * @param height: The number of rows in the grid.
+ * free_grid - frees a 2 dimensional grid
+ * @grid: the grid to be freed
+ * @height: the height of the grid
+ *
+ * Return: Nothing.
  */
-void free_grid(int **grid, int height) {
-    if (grid == NULL || height <= 0) {
-        return;  /* Nothing to free */
-    }
+void free_grid(int **grid, int height)
+{
+    int h;
 
-    for (int h = 0; h < height; h++) {
+    for (h = 0; h < height; h++) {
         free(grid[h]);
     }
+
     free(grid);
 }
