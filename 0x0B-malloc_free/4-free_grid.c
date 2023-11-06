@@ -1,20 +1,26 @@
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * free_grid - frees a 2 dimensional grid
- * @grid: the grid to be freed
- * @height: the height of the grid
+ * free_grid - Frees a 2-dimensional grid previously created by alloc_grid.
+ * @grid: The 2-dimensional grid to be freed.
+ * @height: The height of the grid.
  *
- * Return: Nothing.
+ * This function frees the memory allocated for a 2-dimensional grid.
+ * It first checks if the grid and its rows are not NULL and then frees them.
+ *
+ * Return: No return value.
  */
 void free_grid(int **grid, int height)
 {
-    int h;
-
-    for (h = 0; h < height; h++) {
-        free(grid[h]);
+    if (grid == NULL || height <= 0) {
+        return;  // Nothing to free if grid is NULL or height is non-positive.
     }
 
-    free(grid);
+    for (int h = 0; h < height; h++) {
+        if (grid[h] != NULL) {
+            free(grid[h]);  // Free each row of the grid.
+        }
+    }
+
+    free(grid);  // Free the grid itself.
 }
