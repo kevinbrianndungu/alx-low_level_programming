@@ -2,30 +2,42 @@
 #include <stdlib.h>
 
 /**
- * _strdup - duplicates a string
- * @str: the string to duplicate
+ * argstostr - Concatenates all the arguments of the program.
+ * @ac: The argument count.
+ * @av: The argument vector.
  *
- * Return: a pointer to the newly allocated duplicated string
+ * Return: A pointer to the concatenated string or NULL if it fails.
  */
-char *_strdup(char *str)
+char *argstostr(int ac, char **av)
 {
-    char *duplicate;
-    unsigned int length = 0;
-    unsigned int i;
-
-    if (str == NULL)
+    if (ac == 0 || av == NULL)
         return (NULL);
 
-    while (str[length] != '\0')
-        length++;
+    int total_len = 0;
+    int i, j, k;
+    char *result;
 
-    duplicate = (char *)malloc((length + 1) * sizeof(char));
+    for (i = 0; i < ac; i++)
+    {
+        for (j = 0; av[i][j]; j++)
+            total_len++;
+        total_len++; /* for the new line character */
+    }
 
-    if (duplicate == NULL)
+    result = malloc(sizeof(char) * (total_len + 1));
+
+    if (result == NULL)
         return (NULL);
 
-    for (i = 0; i <= length; i++)
-        duplicate[i] = str[i];
+    k = 0;
+    for (i = 0; i < ac; i++)
+    {
+        for (j = 0; av[i][j]; j++)
+            result[k++] = av[i][j];
+        result[k++] = '\n';
+    }
 
-    return (duplicate);
+    result[k] = '\0';
+
+    return (result);
 }
