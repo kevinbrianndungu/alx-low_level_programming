@@ -18,12 +18,14 @@ char *argstostr(int ac, char **av)
     int len, total_len = 0;
     char *str;
 
-    for (i = 0; i < ac; i++)
+    i = 0;
+    while (i < ac)
     {
         len = 0;
         while (av[i][len])
             len++;
         total_len += len + 1; /* Add 1 for the newline character */
+        i++;
     }
 
     /* Allocate memory for the concatenated string */
@@ -32,12 +34,15 @@ char *argstostr(int ac, char **av)
         return (NULL);
 
     /* Concatenate the arguments */
-    for (i = 0, j = 0; i < ac; i++)
+    i = 0;
+    j = 0;
+    while (i < ac)
     {
         len = 0;
         while (av[i][len])
             str[j++] = av[i][len++];
         str[j++] = '\n'; /* Add newline character */
+        i++;
     }
 
     str[j] = '\0'; /* Null-terminate the string */
