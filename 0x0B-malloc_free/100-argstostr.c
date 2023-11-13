@@ -18,6 +18,7 @@ char *argstostr(int ac, char **av)
     int len, total_len = 0;
     char *str;
 
+    /* Calculate the total length of the concatenated string */
     i = 0;
     while (i < ac)
     {
