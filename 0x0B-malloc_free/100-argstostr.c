@@ -35,8 +35,9 @@ char *argstostr(int ac, char **av)
     if (str == NULL)
         return (NULL);
 
+    i = 0; // Move the declaration to the beginning of the block
+
     /* Concatenate the arguments */
-    i = 0;
     j = 0;
     while (i < ac)
     {
