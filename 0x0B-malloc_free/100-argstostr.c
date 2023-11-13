@@ -19,10 +19,12 @@ char *argstostr(int ac, char **av)
     char *str;
 
     for (i = 0; i < ac; i++)
+    {
         len = 0;
         while (av[i][len])
             len++;
         total_len += len + 1; /* Add 1 for the newline character */
+    }
 
     /* Allocate memory for the concatenated string */
     str = malloc(sizeof(char) * (total_len + 1));
