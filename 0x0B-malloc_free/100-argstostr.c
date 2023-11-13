@@ -14,10 +14,11 @@ char *argstostr(int ac, char **av)
     if (ac == 0 || av == NULL)
         return (NULL);
 
-    int i, j, len, total_len = 0;
+    int i, j, len;
+    int total_len = 0;
     char *str;
 
-    // Calculate the total length of the concatenated string
+    /* Calculate the total length of the concatenated string */
     for (i = 0; i < ac; i++)
     {
         len = 0;
@@ -25,15 +26,15 @@ char *argstostr(int ac, char **av)
         {
             len++;
         }
-        total_len += len + 1; // Add 1 for the newline character
+        total_len += len + 1; /* Add 1 for the newline character */
     }
 
-    // Allocate memory for the concatenated string
-    str = malloc(sizeof(char) * total_len + 1);
+    /* Allocate memory for the concatenated string */
+    str = malloc(sizeof(char) * (total_len + 1));
     if (str == NULL)
         return (NULL);
 
-    // Concatenate the arguments
+    /* Concatenate the arguments */
     for (i = 0, j = 0; i < ac; i++)
     {
         len = 0;
@@ -41,10 +42,10 @@ char *argstostr(int ac, char **av)
         {
             str[j++] = av[i][len++];
         }
-        str[j++] = '\n'; // Add newline character
+        str[j++] = '\n'; /* Add newline character */
     }
 
-    str[j] = '\0'; // Null-terminate the string
+    str[j] = '\0'; /* Null-terminate the string */
 
     return (str);
 }
