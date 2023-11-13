@@ -14,10 +14,7 @@ char *argstostr(int ac, char **av)
     if (ac == 0 || av == NULL)
         return (NULL);
 
-    int i;
-    int j;
-    int len;
-    int total_len = 0;
+    int i, j, len, total_len = 0;
     char *str;
 
     i = 0;
@@ -35,7 +32,7 @@ char *argstostr(int ac, char **av)
     if (str == NULL)
         return (NULL);
 
-    i = 0; // Move the declaration to the beginning of the block
+    i = 0; /* Reset i to 0 */
 
     /* Concatenate the arguments */
     j = 0;
