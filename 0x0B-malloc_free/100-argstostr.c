@@ -1,19 +1,11 @@
 #include <stdlib.h>
 
-/**
- * argstostr - Concatenates all the arguments of your program.
- * @ac: The number of arguments.
- * @av: An array of strings containing the arguments.
- *
- * Return: A pointer to a new string, or NULL if it fails.
- */
 char *argstostr(int ac, char **av)
 {
     if (ac == 0 || av == NULL)
         return NULL;
 
-    int total_length = 0;
-    int i, j, k = 0;
+    int i, j, total_length = 0;  // Declare total_length at the beginning
 
     // Calculate the total length of the arguments, including '\n' characters
     for (i = 0; i < ac; i++)
@@ -27,6 +19,8 @@ char *argstostr(int ac, char **av)
     char *result = malloc(total_length + 1); // +1 for the null terminator
     if (result == NULL)
         return NULL;
+
+    int k = 0;  // Move the declaration of k to the beginning of the block
 
     // Copy each argument to the result string
     for (i = 0; i < ac; i++)
