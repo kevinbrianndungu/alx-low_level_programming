@@ -1,51 +1,46 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * argstostr - concatenates all the arguments of the program
- * @ac: argument count
- * @av: argument vector
+ * argstostr - Concatenates all the arguments of your program.
+ * @ac: The number of arguments.
+ * @av: An array of strings containing the arguments.
  *
- * Return: pointer to the concatenated string, or NULL on failure
+ * Return: A pointer to a new string, or NULL if it fails.
  */
 char *argstostr(int ac, char **av)
 {
     if (ac == 0 || av == NULL)
-        return (NULL);
+        return NULL;
 
-    int i, j, len, total_len = 0;
-    char *str;
+    int total_length = 0;
+    int i, j, k = 0;
 
-    i = 0;
-    while (i < ac)
+    // Calculate the total length of the arguments, including '\n' characters
+    for (i = 0; i < ac; i++)
     {
-        len = 0;
-        while (av[i][len])
-            len++;
-        total_len += len + 1; /* Add 1 for the newline character */
-        i++;
+        for (j = 0; av[i][j] != '\0'; j++)
+            total_length++;
+        total_length++; // for '\n' character
     }
 
-    /* Allocate memory for the concatenated string */
-    str = malloc(sizeof(char) * (total_len + 1));
-    if (str == NULL)
-        return (NULL);
+    // Allocate memory for the concatenated string
+    char *result = malloc(total_length + 1); // +1 for the null terminator
+    if (result == NULL)
+        return NULL;
 
-    i = 0; /* Reset i to 0 */
-
-    /* Concatenate the arguments */
-    j = 0;
-    while (i < ac)
+    // Copy each argument to the result string
+    for (i = 0; i < ac; i++)
     {
-        len = 0;
-        while (av[i][len])
-            str[j++] = av[i][len++];
-        str[j++] = '\n'; /* Add newline character */
-        i++;
+        for (j = 0; av[i][j] != '\0'; j++)
+        {
+            result[k] = av[i][j];
+            k++;
+        }
+        result[k] = '\n'; // Add '\n' after each argument
+        k++;
     }
 
-    str[j] = '\0'; /* Null-terminate the string */
+    result[k] = '\0'; // Add null terminator at the end
 
-    return (str);
+    return result;
 }
