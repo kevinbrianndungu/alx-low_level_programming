@@ -12,23 +12,23 @@ int is_palindrome(char *s)
     int length = 0;
     int i, j;
 
-    // Find the length of the string
+    /* Find the length of the string */
     while (s[length] != '\0')
         length++;
 
-    // Initialize i and j to the start and end of the string
+    /* Initialize i and j to the start and end of the string */
     i = 0;
     j = length - 1;
 
-    // Check if the string is a palindrome
+    /* Check if the string is a palindrome */
     while (i < j)
     {
         if (s[i] != s[j])
-            return 0; // Not a palindrome
+            return 0; /* Not a palindrome */
 
         i++;
         j--;
     }
 
-    return 1; // Palindrome
+    return 1; /* Palindrome */
 }
