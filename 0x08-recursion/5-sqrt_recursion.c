@@ -1,35 +1,33 @@
 #include "main.h"
 
-int find_sqrt(int n, int i);
-
 /**
- * _sqrt_recursion - Returns the natural square root of a number.
+ * is_prime_number - Checks if a given number is a prime number.
  * @n: The input number.
  * 
- * Return: The natural square root of the number, or -1 if it does not exist.
+ * Return: 1 if the number is prime, 0 otherwise.
  */
-int _sqrt_recursion(int n)
+int is_prime_number(int n)
 {
-    return find_sqrt(n, 1);
+    if (n <= 1)
+        return 0; /* 0 and 1 are not prime numbers */
+    return check_prime(n, 2);
 }
 
 /**
- * find_sqrt - Helper function to find the square root recursively.
+ * check_prime - Helper function to check if a number is prime recursively.
  * @n: The input number.
- * @i: The current value to check for square root.
+ * @i: The current divisor to check.
  * 
- * Return: The natural square root of the number, or -1 if it does not exist.
+ * Return: 1 if the number is prime, 0 otherwise.
  */
-int find_sqrt(int n, int i)
+int check_prime(int n, int i)
 {
-    if (n < 0)
-        return -1; /* Return -1 to indicate an error for n < 0 */
-    else if (n == 0)
-        return 0; /* Square root of 0 is 0 */
-    else if (i * i > n)
-        return -1; /* If i*i exceeds n, n does not have a natural square root */
-    else if (i * i == n)
-        return i; /* If i*i is equal to n, i is the square root of n */
-    else
-        return find_sqrt(n, i + 1); /* Recursive call to check the next value */
+    if (i <= n / 2)
+    {
+        if (n % i == 0)
+            return 0; /* If n is divisible by i, it's not prime */
+        else
+            return check_prime(n, i + 1); /* Check the next divisor */
+    }
+    return 1; /* If no divisor found, n is prime */
 }
