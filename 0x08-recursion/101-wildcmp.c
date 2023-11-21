@@ -9,21 +9,21 @@
  */
 int wildcmp(char *s1, char *s2)
 {
-    // If both strings are empty, they are considered identical
+    /* If both strings are empty, they are considered identical */
     if (*s1 == '\0' && *s2 == '\0')
         return 1;
 
-    // If the current characters match or s2 has a wildcard '*'
+    /* If the current characters match or s2 has a wildcard '*' */
     if (*s1 == *s2 || *s2 == '*')
     {
-        // Recursively move to the next characters in both strings
+        /* Recursively move to the next characters in both strings */
         if (*s2 == '*' && (*s1 == '\0' || wildcmp(s1 + 1, s2)))
             return 1;
-        // If no wildcard, continue checking the next characters
+        /* If no wildcard, continue checking the next characters */
         else if (*s1 != '\0' && *s2 != '\0')
             return wildcmp(s1 + 1, s2 + 1);
     }
 
-    // If none of the conditions is met, the strings are not identical
+    /* If none of the conditions is met, the strings are not identical */
     return 0;
 }
