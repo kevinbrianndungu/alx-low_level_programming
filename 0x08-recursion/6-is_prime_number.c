@@ -1,36 +1,41 @@
 #include "main.h"
 
-/* Function prototype */
-int check_prime(int n, int i);
-
 /**
- * is_prime_number - Check if a number is a prime number.
- * @n: The number to check.
+ * is_palindrome - Check if a string is a palindrome.
+ * @s: The string to check.
  *
- * Return: 1 if the number is prime, 0 otherwise.
+ * Return: 1 if the string is a palindrome, 0 otherwise.
  */
-int is_prime_number(int n)
+int is_palindrome(char *s)
 {
-    if (n <= 1)
-        return 0;  /* 0 and 1 are not prime numbers */
+    int length = 0;
 
-    return check_prime(n, 2);  /* Start checking from 2 */
+    /* Get the length of the string */
+    while (s[length] != '\0')
+        length++;
+
+    /* Check if the string is a palindrome using a recursive helper function */
+    return check_palindrome(s, 0, length - 1);
 }
 
 /**
- * check_prime - Helper function to check if a number is prime recursively.
- * @n: The number to check.
- * @i: The current divisor to check.
+ * check_palindrome - Helper function to check if a string is a palindrome recursively.
+ * @s: The string to check.
+ * @start: The starting index.
+ * @end: The ending index.
  *
- * Return: 1 if the number is prime, 0 otherwise.
+ * Return: 1 if the string is a palindrome, 0 otherwise.
  */
-int check_prime(int n, int i)
+int check_palindrome(char *s, int start, int end)
 {
-    if (i == n)
-        return 1;  /* If we reached the number itself, it's prime */
+    /* Base case: If there is only one character or none, it's a palindrome */
+    if (start >= end)
+        return 1;
 
-    if (n % i == 0)
-        return 0;  /* If n is divisible by i, it's not prime */
+    /* Check if the characters at the current indices are the same */
+    if (s[start] != s[end])
+        return 0;
 
-    return check_prime(n, i + 1);  /* Check the next divisor */
+    /* Recursively check the remaining characters */
+    return check_palindrome(s, start + 1, end - 1);
 }
